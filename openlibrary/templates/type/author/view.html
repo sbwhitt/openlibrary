@@ -209,7 +209,11 @@ $set_share_links(url=request.canonical_url, title=title, view_context=ctx)
         $if page.alternate_names:
             $if page.alternate_names != [""]:
                 <div class="section">
-                    <h3>$_("Alternative names")</h3>
+                    $ edit_link = changequery(m='edit') + '#alternate_names'
+                    <div class="inline-edit">
+                        <h3>$_("Alternative names")</h3>
+                        <a class="inline-edit-link" href="$edit_link">Edit</a>
+                    </div>
                     <ul class="booklinks sansserif">
                         $for alternate_name in page.alternate_names:
                             <li itemprop="alternateName">$alternate_name</li>
