@@ -103,13 +103,23 @@ $:macros.HiddenSaveButton("addAuthor")
 
                         <div class="clearfix"></div>
 
+                        $def render_alt_name_input(alt_name):
+                            <div class="input ac-input mia__input" id="alternate_names">
+                                <div class="mia__reorder">≡</div>
+                                <input class="ac-input__visible" type="text" value="$alt_name">
+                                <a class="mia__remove" href="javascript:;" title="$_('Remove this alternate name?')">[&times;]</a>&nbsp;
+                            </div>
+
                         <div class="formElement">
                             <div class="label">
                                 <label for="alternate_names">$_("Does this author go by any other names?")</label>
                                 <span class="tip">$_("For example:") Lev Nikolayevich Tolstoy; Yasnaya Polyana</span>
                             </div>
                             <div class="input">
-                                <textarea name="author--alternate_names" id="alternate_names" rows="6">$"; ".join(page.alternate_names)</textarea>
+                                $for alt_name in page.alternate_names:
+                                    $:render_alt_name_input(alt_name)
+                                <a href="javascript:;" class="mia__add">$_("Add another name?")</a>
+                                <!-- <textarea name="author--alternate_names" id="alternate_names" rows="6">$"; ".join(page.alternate_names)</textarea> -->
                             </div>
                         </div>
                         <div class="label">Identifiers <a href="/help/faq/editing.en#author-identifiers-purpose"><img src="/images/icons/icon_help.png" alt="$_('Author Identifiers Purpose')"/></a> </div>
