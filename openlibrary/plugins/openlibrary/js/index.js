@@ -122,6 +122,7 @@ jQuery(function () {
 
     const edition = document.getElementById('tabsAddbook');
     const autocompleteAuthor = document.querySelector('.multi-input-autocomplete--author');
+    const autocompleteAlt = document.querySelector('.multi-input-autocomplete--alt');
     const autocompleteLanguage = document.querySelector('.multi-input-autocomplete--language');
     const autocompleteWorks = document.querySelector('.multi-input-autocomplete--works');
     const autocompleteSeeds = document.querySelector('.multi-input-autocomplete--seeds');
@@ -157,6 +158,9 @@ jQuery(function () {
                 }
                 if (autocompleteAuthor) {
                     module.initAuthorMultiInputAutocomplete();
+                }
+                if (autocompleteAlt) {
+                    module.initAltMultiInputAutocomplete();
                 }
                 if (roles) {
                     module.initRoleValidation();

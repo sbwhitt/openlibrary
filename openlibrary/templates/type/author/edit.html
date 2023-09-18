@@ -115,7 +115,7 @@ $:macros.HiddenSaveButton("addAuthor")
                                 <label for="alternate_names">$_("Does this author go by any other names?")</label>
                                 <span class="tip">$_("For example:") Lev Nikolayevich Tolstoy; Yasnaya Polyana</span>
                             </div>
-                            <div class="input">
+                            <div class="multi-input-autocomplete--alt">
                                 $for alt_name in page.alternate_names:
                                     $:render_alt_name_input(alt_name)
                                 <a href="javascript:;" class="mia__add">$_("Add another name?")</a>
